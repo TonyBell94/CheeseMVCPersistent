@@ -21,7 +21,7 @@ namespace CheeseMVC.Controllers
 
         public IActionResult Index()
         {
-            List<CheeseMenu> because = context.CheeseMenus.ToList();
+            List<Menu> because = context.Menus.ToList();
             return View(because);
         }
 
@@ -46,7 +46,7 @@ namespace CheeseMVC.Controllers
                 context.Menus.Add(newMenu);
                 context.SaveChanges();
 
-                return Redirect("/Menu/ViewMenu" + newMenu.ID);
+                return Redirect("/Menu/ViewMenu/" + newMenu.ID);
             }
 
             return View(addMenuViewModel);
